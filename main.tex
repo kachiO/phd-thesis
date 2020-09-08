@@ -1,0 +1,312 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.2 (21/11/15)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+doublespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+]{MastersDoctoralThesis} % The class file specifying the document structure
+\setlength{\parindent}{0.5in}
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{titlesec}
+\usepackage{palatino} % Use the Palatino font by default
+\usepackage[backend=bibtex,style=authoryear,citestyle=authoryear, natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
+\AtEveryBibitem{%
+  \clearfield{issn} % Remove issn
+  \clearfield{doi} % Remove doi
+  \ifentrytype{misc}{}{% Remove url except for @online
+    \clearfield{url}
+  }
+}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{booktabs}
+
+\addbibresource{Mendeley.bib} % The filename of the bibliography
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\titlespacing\section{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{12pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=letterpaper, % Change to letterpaper for US letter
+	left=1.25in, % Inner margin
+	right=1in, % Outer margin
+	bindingoffset=2cm, % Binding offset
+	top=1in, % Top margin
+	bottom=1in, % Bottom margin
+	%showframe,% show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+% \thesistitle{The role of mouse higher visual areas in decision making and scene perception}
+\thesistitle{Visual Evidence Accumulation Behavior in Mice} 
+\supervisor{Dr. Anne K. \textsc{Churchland}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Onyekachi O. \textsc{Odoemene}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{{Cold Spring Harbor Laboratory}} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{{Watson School of Biological Sciences}} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{{Cold Spring Harbor Laboratory}} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{{Anne K. Churchland, PhD}} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+% \textsc{\LARGE \univname}\\[1.5cm] % University name
+% \textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+
+% \HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle}\\[3cm] % Thesis title
+% \HRule \\[1.5cm] % Horizontal line
+ 
+ \bigskip
+ \bigskip
+ \begin{center}
+ 	\bigskip
+	{\LARGE \authorname \par} % Author
+	\bigskip
+% 	{\large \supname \par} % Faculty name
+    \bigskip
+    \bigskip
+ \end{center}
+ 
+% \begin{minipage}{0.4\textwidth}
+% \begin{flushleft} \large
+% \emph{Author:}\\
+% {\authorname} % Author name - remove the \href bracket to remove the link
+% \end{flushleft}
+% \end{minipage}
+% \begin{minipage}{0.4\textwidth}
+% \begin{flushright} \large
+% \emph{Supervisor:} \\
+% {\supname} % Supervisor name - remove the \href bracket to remove the link  
+% \end{flushright}
+% \end{minipage}\\[3cm]
+
+\large \textit{A dissertation submitted in partial fulfillment of the requirements\\ for the degree of \degreename}\\[3cm] % University requirement text
+\deptname\\\univname\\[2cm] % subject name and department name
+ 
+{\large \today}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place 
+
+\vfill
+\end{center}
+\end{titlepage}
+
+%-------------------------------------------------------------------------
+%	QUOTATION PAGE
+%-------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape The scientific individual does not aim at an immediate result. He does not expect that his advanced ideas will be readily taken up. His work is like a planter -for the future. His duty is to lay foundation for those who are to come and point the way.}\bigbreak
+
+\hfill -Nikola Tesla
+
+%----------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------
+\vspace*{0.2\textheight}
+
+\begin{acknowledgements}
+ \addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+Thank you to my thesis supervisor Anne Churchland for her generous support and for providing the resources and environment for conducting my thesis research. To my thesis committee: Tony Zador (chair), Steve Shea (academic mentor), and Josh Huang for their invaluable insights, support, and feedback. To my lab mates, former and current: David Raposo for being a great role model and friend, John Sheppard, Amanda Brown, Matt Kaufman, Farzaneh Najafi, Lital Chartarifsky, Simon Musall, and Ashley Juavinett. A very special thank you to Hien Nguyen - a wonderful technician and great listener; I couldn't have made it through training animals without you. To Heather Read for her insightful scientific/technical lessons and for being really supportive of me. To Rob Eifert for machining all kinds of equipment for me. To the members of the Marks Building for enriching my life scientifically and socially. The Marks building has been such a great place to work; I will miss the building. I would be remiss if I did not mention the Marks building without thanking its guardian, Barry Burbach. Thank you Barry for providing me with lots of technical tricks and Marks history lessons. Also want to thank the Watson School crew: the ring leader Alex Gann, Alyson, Kim Geer and Kim Creteur. Kim C, thank you for helping me escape the lab once a year to help with recruitment at ABRCMS. \\
+Finally, I want to thank my best friend and wife, Funke Audu, for her love and unwavering faith in me. 
+
+\end{acknowledgements}
+
+%-------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%-------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+\listoffigures % Prints the list of figures
+\listoftables % Prints the list of tables
+
+%-----------------------------------------------------------------------
+%	ABBREVIATIONS
+%-----------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+\textbf{PPC} & \textbf{P}osterior \textbf{P}arietal \textbf{C}ortex\\
+\textbf{LIP} & \textbf{L}ateral \textbf{I}ntra\textbf{P}arietal Cortex\\
+\textbf{VIP} & \textbf{V}entral \textbf{I}ntra\textbf{P}arietal Cortex\\
+\textbf{MIP} & \textbf{M}edial \textbf{I}ntra\textbf{P}arietal Cortex\\
+\textbf{AIP} & \textbf{A}nterior \textbf{I}ntra\textbf{P}arietal Cortex\\
+\textbf{PIP} & \textbf{P}osterior \textbf{I}ntra\textbf{P}arietal Cortex\\
+\textbf{V1 or VISp} &  \textbf{V}isual Cortex, Primary \\
+\textbf{AM or VISam} & \textbf{A}ntero-\textbf{M}edial Visual Cortex\\
+\textbf{AL or VISal} & \textbf{A}ntero-\textbf{L}ateral Visual Cortex\\
+\textbf{LM or VISl} & \textbf{L}ateral \textbf{M}edial Visual Cortex\\
+\textbf{RL or VISrl} & \textbf{R}ostro-\textbf{L}ateral Visual Cortex\\
+\textbf{PM or VISpm} & \textbf{P}osterior \textbf{M}edial Visual Cortex\\
+\textbf{VISpl} & \textbf{P}osterior Visual Cortex\\
+\textbf{POR or VISpor} & \textbf{P}ostrhinal Visual Cortex\\
+\textbf{P or VISli} & \textbf{L}ateral \textbf{I}ntermediate Visual Cortex\\
+\textbf{MMA} & \textbf{M}edio-\textbf{M}edial \textbf{A}nterior Visual Cortex\\
+\textbf{MMP} & \textbf{M}edio-\textbf{M}edial \textbf{P}oterior Visual Cortex\\
+\textbf{S1} & \textbf{S}omatosensory Cortex, Primary\\
+\textbf{A1} & \textbf{A}uditory Cortex, Primary\\
+\textbf{RSP or RSP} & \textbf{R}etro- \textbf{S}plenial \textbf{A}rea\\
+\textbf{ACA} & \textbf{A}nterior \textbf{C}ingulate \textbf{A}rea\\
+\textbf{M1 or MOp} & \textbf{M}otor Cortex, Primary\\
+\textbf{M2 or MOs} & \textbf{M}otor Cortex, Secondary\\
+\textbf{ORB} & \textbf{O}rbital Frontal Cortex\\
+\textbf{FEF} & \textbf{F}rontal- \textbf{E}ye \textbf{F}ield\\
+\textbf{FOF} & \textbf{F}rontal \textbf{O}rienting \textbf{F}ield\\
+\textbf{PFC} & \textbf{P}re- \textbf{F}rontal \textbf{C}ortex\\
+\textbf{PL} & \textbf{P}re- \textbf{L}imbic \textbf{C}ortex\\
+\textbf{ILA} & \textbf{I}nfra\textbf{L}imbic \textbf{C}ortex\\
+\textbf{PERI} & \textbf{PERI}rhinal Cortex\\
+\textbf{PRE} & \textbf{P}resubiculum\\
+\textbf{STR} & \textbf{S}triatum\\
+\textbf{SCm} & \textbf{S}uperior \textbf{C}olliculus, motor\\
+\textbf{SCs} & \textbf{S}uperior \textbf{C}olliculus, sensory\\
+\textbf{P} & \textbf{P}ons\\
+\textbf{cst} & \textbf{C}ortico\textbf{S}pinal\textbf{T}ract\\
+\textbf{DREADD} & \textbf{D}esigner \textbf{R}eceptor \textbf{E}xclusively \textbf{A}ctivated by \textbf{D}esigner \textbf{D}rug\\
+\textbf{CNO} & \textbf{C}lozapine-\textbf{N}-\textbf{O}xide\\
+\textbf{ChR2} & \textbf{C}hannel\textbf{R}hodopsin-2\\
+\textbf{SEM} & \textbf{S}tandard-\textbf{E}rror of the -\textbf{M}ean\\
+\textbf{PMF} & \textbf{P}sychometric \textbf{F}unction
+
+\label{abbreviations}
+\end{abbreviations}
+
+% %-----------------------------------------------------------------------
+% %	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+% %-----------------------------------------------------------------------
+
+% \begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% % The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+% 	Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+% %Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+% \end{constants}
+
+%-----------------------------------------------------------------------
+%	SYMBOLS
+%-----------------------------------------------------------------------
+
+%\begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+% $a$ & distance & \si{\meter} \\
+% $P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+% %Symbol & Name & Unit \\
+
+% \addlinespace % Gap to separate the Roman symbols from the Greek
+
+% $\omega$ & angular frequency & \si{\radian} \\
+
+% \end{symbols}
+
+%------------------------------------------------------------------------
+%	DEDICATION
+%------------------------------------------------------------------------
+
+% \dedicatory{For/Dedicated to/To my\ldots} 
+
+%------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4} 
+\include{Chapters/Chapter5} 
+\include{Chapters/Chapter6} 
+%\include{Chapters/Chapter7} 
+
+%-------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%-------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+\include{Appendices/AppendixA}
+\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%-------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%-------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+
+%-------------------------------------------------------------------------
+
+\end{document}  
